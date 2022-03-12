@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <h1>PLEASE GIVE YOUR RESPONSE</h1>
+    </div>
+
+    <div>
+        <button class="btn1" id="b1" type="button">YES</button>
+        <button class="btn2" id="b2" type="button">NO</button>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyAQ2FU-OaJzklkEafaWYyMV6kwRzWf-_jU",
+          authDomain: "sem4project-95dfc.firebaseapp.com",
+          projectId: "sem4project-95dfc",
+          storageBucket: "sem4project-95dfc.appspot.com",
+          messagingSenderId: "1022736212561",
+          appId: "1:1022736212561:web:963267d1f68daa1501ce70",
+          measurementId: "G-Y89N81WJR6"
+        };
+      
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import { getDatabase, ref, set, child, update, remove }
+            from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
+
+        const db = getDatabase();
+
+        var y = "yes";
+        var n = "no";
+
+        var yesBtn = document.getElementById("b1");
+        var noBtn = document.getElementById("b2");
+
+        function yes() {
+            set(ref(db, "permission/"), {
+                unlock: y
+            })
+                .then(() => {
+                    alert("done");
+                    console.log("hello")
+                })
+                .catch((error) => {
+                    alert("unsuccessful ,error" + error);
+                    console.log("no hello")
+                });
+        }
+
+        function no(){
+            set(ref(db, "permission/"), {
+                unlock: n
+            })
+                .then(() => {
+                    alert("done");
+                    console.log("hello")
+                })
+                .catch((error) => {
+                    alert("unsuccessful ,error" + error);
+                    console.log("no hello")
+                });
+        }
+
+        yesBtn.addEventListener('click', yes);
+        noBtn.addEventListener('click', no);
+
+    </script>
+</body>
+
+</html>
