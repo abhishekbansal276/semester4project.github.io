@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign_up</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <div class="inputbox">
+    <h1>SIGN UP</h1>
+    <form action="/create_user" method="post">
+      <input type="email" id="email" name="email" placeholder="Enter your email address..." />
+      <br>
+      <input type="text" id="password" name="password" placeholder="Enter your password..." />
+      <br>
+      <div class="buttons">
+        <button type="submit" id="signup">
+          Signup
+        </button>
+        <br>
+        <button type="reset">
+          Cancel
+        </button>
+      </div>
+      <br>
+
+      <div style="display: flex; justify-content: center; font-size: 15px;">
+        Already have account?&nbsp;<span><a href="/">signin</a></span>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
