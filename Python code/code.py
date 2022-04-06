@@ -1,7 +1,3 @@
-# Todo Taking responce from onwer and tell to visitor --- done
-# Face recog accuracy increase
-# Visitor comming time
-# Save visitor data with time
 
 from email.message import EmailMessage
 from email.mime.multipart import MIMEMultipart
