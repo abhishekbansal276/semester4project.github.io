@@ -20,7 +20,7 @@ class project:
             face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
             video = cv2.VideoCapture(0)
             check,frame = video.read()
-            cv2.imwrite('./temp/savedImage.jpg',frame)
+            cv2.imwrite('./visitor/savedImage.jpg',frame)
             video.release()
         except:
             print('WebCam Is Not Working Properly or Plugged In.')
@@ -57,15 +57,16 @@ class project:
         value = db.child("permission").child("unlock").get()
         print(value.val())
         return value.val()
+    
     def email(self,mesg, ph):
-        EMAIL_ADDRESS = os.environ.get('email_address')
-        EMAIL_PASSWORD = os.environ.get('email_password')
+        EMAIL_ADDRESS = "semesterfourproject@gmail.com"
+        EMAIL_PASSWORD = 'aparrbnjdemjybmx'
         msg = EmailMessage()
         msg['Subject'] = 'Intruder Alert!'
         msg['From'] = EMAIL_ADDRESS
         msg['To'] = EMAIL_ADDRESS
         msg.set_content('Do you want to let him in?\nReason: '+mesg+'\nPhone number : '+ph+"\nPlease give your response\n https://abhishekbansal276.github.io/semester4project.github.io/")
-        with open('./temp/savedImage.jpg', 'rb') as f:
+        with open('./visitor/savedImage.jpg', 'rb') as f:
             image_data = f.read()
             image_type = imghdr.what(f.name)
             image_name = f.name
@@ -96,6 +97,7 @@ class project:
         sentence = ""
         sentence = sentence.join(ls)
         return sentence
+    
     def response_taker_first(self):
         name = 'Unknown'
         self.speak("unknown visitor asking for permission")
@@ -123,7 +125,7 @@ class project:
         if(flag==False):
             self.speak("Sorry you can come later as onwer is busy right now")
             now = datetime.datetime.now()
-            cur = cv2.imread('./temp/savedImage.jpg')
+            cur = cv2.imread('./visitor/savedImage.jpg')
             cv2.imwrite('./Unattended/x.jpg', cur)
             image_time = now.strftime("%m-%d-%Y__%H-%M-%S") + '.jpg'
             image_name = "./Unattended/" + image_time
@@ -131,7 +133,7 @@ class project:
         return name
 
     def recogonizer(self,encodeListKnown,images,classNames):
-        cur = cv2.imread('./temp/savedImage.jpg')
+        cur = cv2.imread('./visitor/savedImage.jpg')
         imgSmall = cv2.resize(cur, (0, 0), None, 0.25, 0.25)
         imgSmall = cv2.cvtColor(imgSmall, cv2.COLOR_BGR2RGB)
         facesCurFrame = face_recognition.face_locations(imgSmall)
@@ -186,8 +188,8 @@ class project:
     def speak(self,saying):
         if(platform.system() == 'Linux'):
             tts = gtts.gTTS(saying)
-            tts.save('./temp/voice.mp3')
-            playsound('./temp/voice.mp3')
+            tts.save('./visitor/voice.mp3')
+            playsound('./visitor/voice.mp3')
         else:
             engine = pyttsx3.init()
             engine.setProperty('rate', 170)
