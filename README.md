@@ -1,10 +1,10 @@
 # Security_System_for_Home
 ## Contributors
 <ol>
-<li>Samarth Ahuja</li>
 <li>Abhishek Bansal</li>
-<li>Shubham Singh</li>
 <li>Aman Chaturvedi</li>
+<li>Samarth Ahuja</li>
+<li>Shubham Singh</li>
 </ol>
 
 ## Installation
