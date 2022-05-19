@@ -1,0 +1,40 @@
+h1{
+  size: 50px;    
+} 
+
+.response input{
+  border-radius: 20px;
+  width: 20%;
+  padding: 10px;
+  box-shadow: 0px 4px 4px 0px lightgrey;
+  border: 0px solid white;
+  height: 50px;
+}
+
+.response input:focus{
+  border: 0px solid white;
+}
+
+.response button{
+  border-radius: 50px;
+  height: 50px;
+  width: 100px;
+  border: 0px solid white;
+  background-color: #ffffff;
+  margin: 20px;
+  box-shadow: 0px 4px 4px 0px lightgrey;
+}
+
+#b1:hover{
+  background-color: green;
+}
+
+#b2:hover{
+  background-color: red;
+}
+
+@media (max-width:700px) {
+  .response input{
+    width: 70%;
+  }
+}
