@@ -60,7 +60,7 @@ class project:
     
     def email(self,mesg, ph):
         EMAIL_ADDRESS = "semesterfourproject@gmail.com"
-        EMAIL_PASSWORD = 'aparrbnjdemjybmx'
+        EMAIL_PASSWORD = 'wrujqvxpjmhnbvjg'
         msg = EmailMessage()
         msg['Subject'] = 'Intruder Alert!'
         msg['From'] = EMAIL_ADDRESS
